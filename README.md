@@ -13,6 +13,22 @@ linear network code delivering every message at rate one, while no concurrent mu
 reaches rate one. So network coding can beat routing in undirected networks, and the conjecture is
 false.
 
+The same argument shows that the advantage is unbounded:
+
+```lean
+theorem NccCert.not_NCC_rate {r : ℝ} (hr : 0 < r) : ¬ NccCert.NCC_rate r
+```
+
+For every ε > 0 there is such a network on which a scalar linear code delivers every message at
+rate one while no concurrent multicommodity flow reaches rate ε (`NccCert/UnboundedGap.lean`). In
+particular, no constant-factor weakening of the conjecture holds either.
+
+Every `LinearCode` sends each edge in one fixed direction along an acyclic orientation. So the
+counterexample is a rate-one code on a directed acyclic network whose undirected version has no
+rate-one (indeed no rate-ε) flow. This also refutes the weaker directed-acyclic form of the
+conjecture used by Afshani–Freksen–Kamma–Larsen, Farhadi–Hajiaghayi–Larsen–Shi and
+Dvořák–Koucký–Král–Slívová.
+
 **Credit.** The essential ingredient is OpenAI's theorem that the exact *n*-point discrete Fourier
 transform has linear circuits with fewer than *c*·*n*·log₂ *n* gates, for every *c* > 0 and
 arbitrarily large *n*. It is family 130, "Exact Fourier transforms below *n* log *n*", in
@@ -35,7 +51,16 @@ theorem OAI.ExactFourier.main_theorem : OAI.ExactFourier.MainStatement
 -- this project (NccCert/Unconditional.lean)
 theorem NccCert.not_NCC_rate_one : ¬ NccCert.NCC_rate_one :=
   not_NCC_rate_one_of_exactFourier OAI.ExactFourier.main_theorem
+-- this project (NccCert/UnboundedGap.lean)
+theorem NccCert.not_NCC_rate_of_exactFourier (hF : OAI.ExactFourier.MainStatement)
+    {r : ℝ} (hr : 0 < r) : ¬ NccCert.NCC_rate r
+theorem NccCert.not_NCC_rate {r : ℝ} (hr : 0 < r) : ¬ NccCert.NCC_rate r
 ```
+
+`NCC_rate r` is `NCC_rate_one` with the flow rate `1` replaced by `r`; `NCC_rate 1` is literally
+`NCC_rate_one` (checked by `Iff.rfl` in the file). The unbounded version uses the same network with
+c = r/64 and n ≥ 2^m, m = max(18, ⌈16/r⌉ + 2). The best flow rate on the network is at most about
+32c, where c measures how far the Fourier circuit beats n log₂ n.
 
 * `NccCert.NCC_rate_one` (`NccCert/Statement.lean`) is the rate-one, unit-capacity form of the
   conjecture. It says that on any finite undirected unit-capacity multigraph with no loops, *k*
@@ -122,7 +147,7 @@ OpenAI's `Core.lean` does `import Mathlib`, so the full library is needed.
 
 ```sh
 lake exe cache get              # or build Mathlib from source (several hours on 2 cores)
-lake build NccCert OAIFourier   # this project's 12 modules and OpenAI's 51 files
+lake build NccCert OAIFourier   # this project's 13 modules and OpenAI's 51 files
 ./scripts/check_axioms.sh       # fails unless the main theorems use only the 3 standard axioms
 ./check_all.sh                  # optional: leanchecker kernel replay of every project module
 ./scripts/verify_vendored.sh    # vendored OpenAI files are byte-identical to upstream
@@ -135,9 +160,10 @@ What the checks establish:
 
 * The build completes with no errors and no `sorry`. The only warnings are linter and deprecation
   warnings.
-* `scripts/check_axioms.sh` confirms that `not_NCC_rate_one`, `not_NCC_rate_one_of_exactFourier`
-  and `OAI.ExactFourier.main_theorem` depend only on `propext`, `Classical.choice` and
-  `Quot.sound`. These are also the axioms OpenAI's Comparator challenge permits.
+* `scripts/check_axioms.sh` confirms that `not_NCC_rate_one`, `not_NCC_rate_one_of_exactFourier`,
+  `not_NCC_rate`, `not_NCC_rate_of_exactFourier` and `OAI.ExactFourier.main_theorem` depend only on
+  `propext`, `Classical.choice` and `Quot.sound`. These are also the axioms OpenAI's Comparator
+  challenge permits.
 * `leanchecker` (the kernel replay checker shipped with Lean) re-checks every declaration of every
   `NccCert.*` and `OAI.Computability.FourierCircuit.*` module.
 * Neither development contains `axiom`, `sorry`, `native_decide`, `implemented_by`, `extern`,
@@ -152,9 +178,12 @@ What the checks establish:
 
 ## Scope and consequences
 
-* Lean proves the negation of the rate-one, unit-capacity, scalar-linear form of the conjecture.
-  The conjecture itself then fails by the short argument in
+* Lean proves the negation of the rate-one, unit-capacity, scalar-linear form of the conjecture,
+  and of every rate-r weakening of it. The conjecture itself then fails by the short argument in
   [Why the conjecture implies `NCC_rate_one`](#why-the-conjecture-implies-ncc_rate_one).
+* The coding advantage is unbounded. Braverman, Garg and Schvartzman (ITCS 2017) showed that any
+  gap can be amplified to a polylogarithmic one; `not_NCC_rate` gives unboundedness directly. The
+  cut bound caps the advantage at O(log |V|).
 * Conditional results of the form "the network coding conjecture implies a lower bound" lose their
   hypothesis. Examples include Afshani–Freksen–Kamma–Larsen (ICALP 2019) on Ω(n log n) Boolean
   circuits for multiplication, Farhadi–Hajiaghayi–Larsen–Shi (STOC 2019) on external-memory integer
@@ -175,6 +204,7 @@ What the checks establish:
 | `NccCert/Fourier.lean` | OpenAI circuits to linear DAGs over a finite field, and the cyclic identity |
 | `NccCert/Main.lean` | `not_NCC_rate_one_of_exactFourier` |
 | `NccCert/Unconditional.lean` | `not_NCC_rate_one` |
+| `NccCert/UnboundedGap.lean` | `NCC_rate r` and `not_NCC_rate`: no flow of any rate r > 0 |
 | `NccCert/ExactFourierDefs.lean` | imports OpenAI's `Core.lean` (the statement's definitions) |
 | `NccCert/Check.lean` | axiom audit and printed statements |
 | `OAI/Computability/FourierCircuit/` | OpenAI's proof, unmodified |

@@ -11,7 +11,8 @@ echo
 
 expected=$(printf '%s\n' propext Classical.choice Quot.sound | sort | tr '\n' ' ')
 fail=0
-for t in NccCert.not_NCC_rate_one NccCert.not_NCC_rate_one_of_exactFourier OAI.ExactFourier.main_theorem; do
+for t in NccCert.not_NCC_rate_one NccCert.not_NCC_rate_one_of_exactFourier OAI.ExactFourier.main_theorem \
+         NccCert.not_NCC_rate NccCert.not_NCC_rate_of_exactFourier; do
   line=$(grep -F "'$t' depends on axioms:" <<<"$out" || true)
   if [ -z "$line" ]; then
     echo "FAIL  $t: no axiom report (does it depend on no axioms, or did Check.lean fail?)"
