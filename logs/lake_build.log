@@ -1,0 +1,283 @@
+Wed Oct  7 04:49:08 EDT 2026
+✔ [3256/3341] Built NccCert.Graph (2.9s)
+⚠ [4659/4759] Built NccCert.Flow (1.9s)
+warning: NccCert/Flow.lean:1:0: 'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Real.Basic
+warning: NccCert/Flow.lean:54:30: `if_true` has been deprecated: Use `ite_true` instead
+warning: NccCert/Flow.lean:67:32: `if_true` has been deprecated: Use `ite_true` instead
+⚠ [8924/8934] Built NccCert.Code (1.3s)
+warning: NccCert/Code.lean:44:0: automatically included section variable(s) unused in theorem `NccCert.LinearCode.val_unique`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8926/8934] Built NccCert.Specialize (2.4s)
+warning: NccCert/Specialize.lean:10:0: 'Mathlib.Data.Complex.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Complex.Basic
+warning: NccCert/Specialize.lean:40:4: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NccCert/Specialize.lean:47:4: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NccCert/Specialize.lean:49:4: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NccCert/Specialize.lean:51:4: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NccCert/Specialize.lean:52:4: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NccCert/Specialize.lean:53:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NccCert/Specialize.lean:54:4: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NccCert/Specialize.lean:63:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NccCert/Specialize.lean:64:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: NccCert/Specialize.lean:66:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [8928/8934] Built NccCert.LDag (1.5s)
+warning: NccCert/LDag.lean:111:26: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Ne.symm hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [8929/8934] Built NccCert.Statement (1.2s)
+⚠ [8930/8934] Built NccCert.ShiftCode (4.9s)
+warning: NccCert/ShiftCode.lean:316:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: NccCert/ShiftCode.lean:322:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: NccCert/ShiftCode.lean:330:45: `if_false` has been deprecated: Use `ite_false` instead
+warning: NccCert/ShiftCode.lean:363:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: NccCert/ShiftCode.lean:371:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: NccCert/ShiftCode.lean:375:27: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+warning: NccCert/ShiftCode.lean:384:45: `if_false` has been deprecated: Use `ite_false` instead
+warning: NccCert/ShiftCode.lean:386:32: `if_true` has been deprecated: Use `ite_true` instead
+warning: NccCert/ShiftCode.lean:359:44: This simp argument is unused:
+  one_ne_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.mk_one, Fin.isValue, false_and, dite_false, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: NccCert/ShiftCode.lean:359:57: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.mk_one, Fin.isValue, one_ne_zero, dite_false, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: NccCert/ShiftCode.lean:359:68: This simp argument is unused:
+  dite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.mk_one, Fin.isValue, one_ne_zero, false_and, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: NccCert/ShiftCode.lean:359:80: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.mk_one, Fin.isValue, one_ne_zero, false_and, dite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: NccCert/ShiftCode.lean:403:62: `if_false` has been deprecated: Use `ite_false` instead
+warning: NccCert/ShiftCode.lean:403:49: This simp argument is unused:
+  one_ne_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [outV, vval, nodeVal, Fin.isValue, if_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: NccCert/ShiftCode.lean:403:62: This simp argument is unused:
+  if_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [outV, vval, nodeVal, Fin.isValue, one_ne_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [8983/8988] Built NccCert.ExactFourierDefs (23s)
+⚠ [8984/8988] Built NccCert.Fourier (20s)
+warning: NccCert/Fourier.lean:55:47: `Fin.coe_castSucc` has been deprecated: Use `Fin.val_castSucc` instead
+warning: NccCert/Fourier.lean:64:67: `Fin.coe_castSucc` has been deprecated: Use `Fin.val_castSucc` instead
+warning: NccCert/Fourier.lean:65:79: `Fin.coe_castSucc` has been deprecated: Use `Fin.val_castSucc` instead
+warning: NccCert/Fourier.lean:71:48: `Fin.coe_castSucc` has been deprecated: Use `Fin.val_castSucc` instead
+warning: NccCert/Fourier.lean:72:55: `Fin.coe_castSucc` has been deprecated: Use `Fin.val_castSucc` instead
+warning: NccCert/Fourier.lean:82:74: `Fin.coe_castSucc` has been deprecated: Use `Fin.val_castSucc` instead
+warning: NccCert/Fourier.lean:91:74: `Fin.coe_castSucc` has been deprecated: Use `Fin.val_castSucc` instead
+warning: NccCert/Fourier.lean:132:8: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+warning: NccCert/Fourier.lean:120:39: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: NccCert/Fourier.lean:176:27: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+warning: NccCert/Fourier.lean:184:14: `Fin.coe_castLE` has been deprecated: Use `Fin.val_castLE` instead
+warning: NccCert/Fourier.lean:193:27: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+warning: NccCert/Fourier.lean:172:68: This simp argument is unused:
+  Fin.val_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: NccCert/Fourier.lean:354:46: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+warning: NccCert/Fourier.lean:356:30: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+warning: NccCert/Fourier.lean:357:42: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: NccCert/Fourier.lean:358:42: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: NccCert/Fourier.lean:400:12: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8985/8988] Built NccCert.Main (20s)
+warning: NccCert/Main.lean:60:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [8986/8988] Built NccCert.Unconditional (17s)
+ℹ [8987/8988] Built NccCert.Check (16s)
+info: NccCert/Check.lean:6:0: 'NccCert.not_NCC_rate_one_of_exactFourier' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NccCert/Check.lean:7:0: 'OAI.ExactFourier.main_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NccCert/Check.lean:8:0: 'NccCert.not_NCC_rate_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NccCert/Check.lean:11:0: NccCert.not_NCC_rate_one_of_exactFourier : OAI.ExactFourier.MainStatement → ¬NccCert.NCC_rate_one
+info: NccCert/Check.lean:12:0: NccCert.not_NCC_rate_one : ¬NccCert.NCC_rate_one
+info: NccCert/Check.lean:13:0: def NccCert.NCC_rate_one : Prop :=
+∀ (V Ed : Type) [Fintype V] [inst : DecidableEq V] [inst_1 : Fintype Ed] (ends : Ed → V × V) (k : ℕ)
+  (src snk : Fin k → V) (F : Type) [inst_2 : Field F] [Finite F],
+  (∀ (e : Ed), (ends e).1 ≠ (ends e).2) →
+    Function.Injective src →
+      Function.Injective snk →
+        (∀ (i j : Fin k), src i ≠ snk j) →
+          Nonempty (NccCert.LinearCode ends src snk F) → Nonempty (NccCert.ConcurrentFlow ends src snk 1)
+info: NccCert/Check.lean:14:0: structure NccCert.LinearCode.{u_1, u_2, u_3} {V : Type u_1} {Ed : Type u_2} [DecidableEq V] [Fintype Ed]
+  (ends : Ed → V × V) {k : ℕ} (src snk : Fin k → V) (F : Type u_3) [Field F] : Type (max (max u_1 u_2) u_3)
+number of parameters: 10
+fields:
+  NccCert.LinearCode.fwd : Ed → Bool
+  NccCert.LinearCode.coef : Ed → F
+  NccCert.LinearCode.rank : V → ℕ
+  NccCert.LinearCode.acyclic : ∀ (e : Ed),
+      self.rank (NccCert.tailOf ends self.fwd e) < self.rank (NccCert.headOf ends self.fwd e)
+  NccCert.LinearCode.solves : ∀ (msg : Fin k → F),
+      ∃ val,
+        (∀ (w : V),
+            val w =
+              (∑ e,
+                  if NccCert.headOf ends self.fwd e = w then self.coef e * val (NccCert.tailOf ends self.fwd e)
+                  else 0) +
+                ∑ i, if src i = w then msg i else 0) ∧
+          ∀ (i : Fin k), val (snk i) = msg i
+constructor:
+  NccCert.LinearCode.mk.{u_1, u_2, u_3} {V : Type u_1} {Ed : Type u_2} [DecidableEq V] [Fintype Ed] {ends : Ed → V × V}
+    {k : ℕ} {src snk : Fin k → V} {F : Type u_3} [Field F] (fwd : Ed → Bool) (coef : Ed → F) (rank : V → ℕ)
+    (acyclic : ∀ (e : Ed), rank (NccCert.tailOf ends fwd e) < rank (NccCert.headOf ends fwd e))
+    (solves :
+      ∀ (msg : Fin k → F),
+        ∃ val,
+          (∀ (w : V),
+              val w =
+                (∑ e, if NccCert.headOf ends fwd e = w then coef e * val (NccCert.tailOf ends fwd e) else 0) +
+                  ∑ i, if src i = w then msg i else 0) ∧
+            ∀ (i : Fin k), val (snk i) = msg i) :
+    NccCert.LinearCode ends src snk F
+info: NccCert/Check.lean:15:0: structure NccCert.ConcurrentFlow.{u_1, u_2} {V : Type u_1} {Ed : Type u_2} [DecidableEq V] [Fintype Ed]
+  (ends : Ed → V × V) {k : ℕ} (src snk : Fin k → V) (r : ℝ) : Type u_2
+number of parameters: 9
+fields:
+  NccCert.ConcurrentFlow.f : Fin k → Ed → ℝ
+  NccCert.ConcurrentFlow.conserve : ∀ (i : Fin k) (x : V),
+      NccCert.netOut ends (self.f i) x = r * ((if x = src i then 1 else 0) - if x = snk i then 1 else 0)
+  NccCert.ConcurrentFlow.capacity : ∀ (e : Ed), ∑ i, |self.f i e| ≤ 1
+constructor:
+  NccCert.ConcurrentFlow.mk.{u_1, u_2} {V : Type u_1} {Ed : Type u_2} [DecidableEq V] [Fintype Ed] {ends : Ed → V × V}
+    {k : ℕ} {src snk : Fin k → V} {r : ℝ} (f : Fin k → Ed → ℝ)
+    (conserve :
+      ∀ (i : Fin k) (x : V),
+        NccCert.netOut ends (f i) x = r * ((if x = src i then 1 else 0) - if x = snk i then 1 else 0))
+    (capacity : ∀ (e : Ed), ∑ i, |f i e| ≤ 1) : NccCert.ConcurrentFlow ends src snk r
+info: NccCert/Check.lean:16:0: def NccCert.netOut.{u_1, u_2} : {V : Type u_1} →
+  {Ed : Type u_2} → [DecidableEq V] → [Fintype Ed] → (Ed → V × V) → (Ed → ℝ) → V → ℝ :=
+fun {V} {Ed} [DecidableEq V] [Fintype Ed] ends f x =>
+  (∑ e, if (ends e).1 = x then f e else 0) - ∑ e, if (ends e).2 = x then f e else 0
+info: NccCert/Check.lean:17:0: def NccCert.tailOf.{u_1, u_2} : {V : Type u_1} → {Ed : Type u_2} → (Ed → V × V) → (Ed → Bool) → Ed → V :=
+fun {V} {Ed} ends fwd e => if fwd e = true then (ends e).1 else (ends e).2
+info: NccCert/Check.lean:18:0: def NccCert.headOf.{u_1, u_2} : {V : Type u_1} → {Ed : Type u_2} → (Ed → V × V) → (Ed → Bool) → Ed → V :=
+fun {V} {Ed} ends fwd e => if fwd e = true then (ends e).2 else (ends e).1
+Build completed successfully (8988 jobs).
+
+real	1m53.223s
+user	0m47.429s
+sys	0m49.312s
+EXIT 0
+Wed Oct  7 04:51:01 EDT 2026

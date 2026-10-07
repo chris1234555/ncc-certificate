@@ -1,0 +1,67 @@
+'NccCert.not_NCC_rate_one_of_exactFourier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OAI.ExactFourier.main_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'NccCert.not_NCC_rate_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+NccCert.not_NCC_rate_one_of_exactFourier : OAI.ExactFourier.MainStatement → ¬NccCert.NCC_rate_one
+NccCert.not_NCC_rate_one : ¬NccCert.NCC_rate_one
+def NccCert.NCC_rate_one : Prop :=
+∀ (V Ed : Type) [Fintype V] [inst : DecidableEq V] [inst_1 : Fintype Ed] (ends : Ed → V × V) (k : ℕ)
+  (src snk : Fin k → V) (F : Type) [inst_2 : Field F] [Finite F],
+  (∀ (e : Ed), (ends e).1 ≠ (ends e).2) →
+    Function.Injective src →
+      Function.Injective snk →
+        (∀ (i j : Fin k), src i ≠ snk j) →
+          Nonempty (NccCert.LinearCode ends src snk F) → Nonempty (NccCert.ConcurrentFlow ends src snk 1)
+structure NccCert.LinearCode.{u_1, u_2, u_3} {V : Type u_1} {Ed : Type u_2} [DecidableEq V] [Fintype Ed]
+  (ends : Ed → V × V) {k : ℕ} (src snk : Fin k → V) (F : Type u_3) [Field F] : Type (max (max u_1 u_2) u_3)
+number of parameters: 10
+fields:
+  NccCert.LinearCode.fwd : Ed → Bool
+  NccCert.LinearCode.coef : Ed → F
+  NccCert.LinearCode.rank : V → ℕ
+  NccCert.LinearCode.acyclic : ∀ (e : Ed),
+      self.rank (NccCert.tailOf ends self.fwd e) < self.rank (NccCert.headOf ends self.fwd e)
+  NccCert.LinearCode.solves : ∀ (msg : Fin k → F),
+      ∃ val,
+        (∀ (w : V),
+            val w =
+              (∑ e,
+                  if NccCert.headOf ends self.fwd e = w then self.coef e * val (NccCert.tailOf ends self.fwd e)
+                  else 0) +
+                ∑ i, if src i = w then msg i else 0) ∧
+          ∀ (i : Fin k), val (snk i) = msg i
+constructor:
+  NccCert.LinearCode.mk.{u_1, u_2, u_3} {V : Type u_1} {Ed : Type u_2} [DecidableEq V] [Fintype Ed] {ends : Ed → V × V}
+    {k : ℕ} {src snk : Fin k → V} {F : Type u_3} [Field F] (fwd : Ed → Bool) (coef : Ed → F) (rank : V → ℕ)
+    (acyclic : ∀ (e : Ed), rank (NccCert.tailOf ends fwd e) < rank (NccCert.headOf ends fwd e))
+    (solves :
+      ∀ (msg : Fin k → F),
+        ∃ val,
+          (∀ (w : V),
+              val w =
+                (∑ e, if NccCert.headOf ends fwd e = w then coef e * val (NccCert.tailOf ends fwd e) else 0) +
+                  ∑ i, if src i = w then msg i else 0) ∧
+            ∀ (i : Fin k), val (snk i) = msg i) :
+    NccCert.LinearCode ends src snk F
+structure NccCert.ConcurrentFlow.{u_1, u_2} {V : Type u_1} {Ed : Type u_2} [DecidableEq V] [Fintype Ed]
+  (ends : Ed → V × V) {k : ℕ} (src snk : Fin k → V) (r : ℝ) : Type u_2
+number of parameters: 9
+fields:
+  NccCert.ConcurrentFlow.f : Fin k → Ed → ℝ
+  NccCert.ConcurrentFlow.conserve : ∀ (i : Fin k) (x : V),
+      NccCert.netOut ends (self.f i) x = r * ((if x = src i then 1 else 0) - if x = snk i then 1 else 0)
+  NccCert.ConcurrentFlow.capacity : ∀ (e : Ed), ∑ i, |self.f i e| ≤ 1
+constructor:
+  NccCert.ConcurrentFlow.mk.{u_1, u_2} {V : Type u_1} {Ed : Type u_2} [DecidableEq V] [Fintype Ed] {ends : Ed → V × V}
+    {k : ℕ} {src snk : Fin k → V} {r : ℝ} (f : Fin k → Ed → ℝ)
+    (conserve :
+      ∀ (i : Fin k) (x : V),
+        NccCert.netOut ends (f i) x = r * ((if x = src i then 1 else 0) - if x = snk i then 1 else 0))
+    (capacity : ∀ (e : Ed), ∑ i, |f i e| ≤ 1) : NccCert.ConcurrentFlow ends src snk r
+def NccCert.netOut.{u_1, u_2} : {V : Type u_1} →
+  {Ed : Type u_2} → [DecidableEq V] → [Fintype Ed] → (Ed → V × V) → (Ed → ℝ) → V → ℝ :=
+fun {V} {Ed} [DecidableEq V] [Fintype Ed] ends f x =>
+  (∑ e, if (ends e).1 = x then f e else 0) - ∑ e, if (ends e).2 = x then f e else 0
+def NccCert.tailOf.{u_1, u_2} : {V : Type u_1} → {Ed : Type u_2} → (Ed → V × V) → (Ed → Bool) → Ed → V :=
+fun {V} {Ed} ends fwd e => if fwd e = true then (ends e).1 else (ends e).2
+def NccCert.headOf.{u_1, u_2} : {V : Type u_1} → {Ed : Type u_2} → (Ed → V × V) → (Ed → Bool) → Ed → V :=
+fun {V} {Ed} ends fwd e => if fwd e = true then (ends e).2 else (ends e).1

@@ -1,0 +1,16 @@
+A Lean certificate that the Li–Li network coding conjecture is false
+Copyright 2026 Chris Poole
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This repository includes third-party software:
+
+  OAI/Computability/FourierCircuit/
+    Copied without modification from lean/OAI/Computability/FourierCircuit/ in
+    https://github.com/openai/math at commit adc7f1241b42e322a6451854ab7e4b4c146bf78a.
+    Copyright OpenAI. Licensed under the Apache License, Version 2.0.
+    scripts/verify_vendored.sh checks that these files are byte-identical to upstream.
+
+  extras/ExactFourierDefs_standalone.lean.txt
+    A verbatim copy of the definitions in lean/ComparatorChallenges/ExactFourier.lean from the
+    same repository and commit (Apache License, Version 2.0).
